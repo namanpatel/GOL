@@ -2,7 +2,6 @@
 import javax.swing.*;
 import java.awt.*;
 
-
 public class RulesOfLife extends JFrame {
 	/* Total number of columns in the grid */
 	private int n_columns;
@@ -78,6 +77,56 @@ public class RulesOfLife extends JFrame {
 	}
 	public void startGame()
 	{
+		int aliveNeighbours = 0;
+		
+		while (false == currentGrid.deadGrid(currentGrid.getColumns(), getRows()))
+		{
+            try
+            {
+                Thread.sleep(100); // do nothing for 1000 milliseconds (1 second)
+            } catch (InterruptedException e)
+            {
+                e.printStackTrace();
+            }
+            for (int r = 0; r<currentGrid.getRows(); r++)
+            {
+                for (int c = 0; c<currentGrid.getColumns(); c++)
+                {
+                    // Get number of neighbors alive.
+                	aliveNeighbours = getCurrentGrid().countNeighboursAlive(currentGrid.getSingleCells()[c][r]);
+                    if (currentGrid.getSingleCells()[c][r].isAlive()) // If the cell is alive.
+                    {
+                        if (aliveNeighbours < 2 || aliveNeighbours > 3) // If number of numbers alive is <2 or >3.
+                        {
+                            nextGrid.getSingleCells()[c][r].dies(); // The cell will die.
+                        }
+                    }
+                    else // if cell is dead then
+                    {
+                        if(aliveNeighbours == 3) // check if 3 neighbors are alive
+                        {
+                            nextGrid.getSingleCells()[c][r].setAlive(); // The becomes alive.
+                        }
+                    }
+                }
+            }
+            
+            // Copy next grid into currentGrid
+            for (int r = 0; r < currentGrid.getRows(); r++)
+            {
+                for (int c = 0; c < currentGrid.getColumns(); c++)
+                {
+                    if (nextGrid.getSingleCells()[c][r].isAlive())
+                    {
+                        currentGrid.getSingleCells()[c][r].setAlive();
+                    }
+                    else
+                    {
+                        currentGrid.getSingleCells()[c][r].dies();
+                    }
+                }
+            }
+		}
 	}
-	
+
 }

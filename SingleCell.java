@@ -1,5 +1,7 @@
-import javax.swing.*;
 import java.awt.Color;
+
+import javax.swing.BorderFactory;
+import javax.swing.*;
 
 public class SingleCell extends JPanel {
 	private boolean isAlive;

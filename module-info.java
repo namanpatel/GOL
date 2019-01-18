@@ -5,6 +5,6 @@
  * @author namanp
  *
  */
-module GOL {
-	requires java.desktop;
-}
+//module GOL {
+//	requires java.desktop;
+//}

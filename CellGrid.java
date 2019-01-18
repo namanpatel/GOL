@@ -19,7 +19,8 @@ public class CellGrid {
             {
                 cells[loop_column][loop_row] = new SingleCell(loop_column,loop_row);
             }
-        }		
+        }	
+        init();
 	}
 	public int getColumns()
 	{
@@ -101,5 +102,20 @@ public class CellGrid {
             }
         }
     	return countAlive;
+    }
+    
+    public void init()
+    {
+        try
+        {
+            this.getSingleCells()[5][2].setAlive();
+            this.getSingleCells()[5][3].setAlive();
+            this.getSingleCells()[6][2].setAlive();
+            this.getSingleCells()[6][3].setAlive();
+        }
+        catch (IndexOutOfBoundsException e)
+        {
+            System.err.println("IndexOutOfBoundsException: " + e.getMessage());
+        }
     }
 }
