@@ -108,10 +108,35 @@ public class CellGrid {
     {
         try
         {
-            this.getSingleCells()[5][2].setAlive();
-            this.getSingleCells()[5][3].setAlive();
-            this.getSingleCells()[6][2].setAlive();
-            this.getSingleCells()[6][3].setAlive();
+            this.getSingleCells()[2][1].setAlive();
+            this.getSingleCells()[2][2].setAlive();
+            this.getSingleCells()[1][1].setAlive();
+            this.getSingleCells()[1][2].setAlive();
+            
+            this.getSingleCells()[8][2].setAlive();
+            this.getSingleCells()[8][1].setAlive();
+            this.getSingleCells()[9][2].setAlive();
+            this.getSingleCells()[9][1].setAlive();
+
+            this.getSingleCells()[5][5].setAlive();
+            this.getSingleCells()[5][6].setAlive();
+            this.getSingleCells()[6][5].setAlive();
+            this.getSingleCells()[6][6].setAlive();
+
+            
+            this.getSingleCells()[2][8].setAlive();
+            this.getSingleCells()[2][9].setAlive();
+            this.getSingleCells()[1][8].setAlive();
+            this.getSingleCells()[1][9].setAlive();	
+
+            this.getSingleCells()[9][9].setAlive();
+            this.getSingleCells()[8][9].setAlive();
+            this.getSingleCells()[8][8].setAlive();
+            this.getSingleCells()[9][8].setAlive();
+            
+            this.getSingleCells()[4][3].setAlive();
+            this.getSingleCells()[3][4].setAlive();
+            
         }
         catch (IndexOutOfBoundsException e)
         {

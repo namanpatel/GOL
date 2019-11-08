@@ -16,8 +16,8 @@ public class RulesOfLife extends JFrame {
 	{
         super("Game of Life");
 
-        n_columns = 51;
-        n_rows = 51;
+        n_columns = 11;
+        n_rows = 11;
 
         currentGrid = new CellGrid(n_columns, n_rows);
         nextGrid = new CellGrid(n_columns, n_rows);
@@ -40,6 +40,12 @@ public class RulesOfLife extends JFrame {
         setLocationRelativeTo(null);
         /* Make the frame visible */
         setVisible(true);
+        try {
+			Thread.sleep(5000);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
     }
 
 	public CellGrid getNextGrid ()
@@ -110,7 +116,13 @@ public class RulesOfLife extends JFrame {
                     }
                 }
             }
-            
+
+            try {
+				Thread.sleep(2000);
+			} catch (InterruptedException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
             // Copy next grid into currentGrid
             for (int r = 0; r < currentGrid.getRows(); r++)
             {
